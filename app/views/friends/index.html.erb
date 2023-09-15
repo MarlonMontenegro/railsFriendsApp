@@ -1,0 +1,30 @@
+<br>
+<br>
+<table class="table table-striped">
+  <thead class="table-dark">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Twitter</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @friends.each do |friend| %>
+    <tr>
+      <td><%= friend.first_name + ' ' + friend.last_name %></td>
+      <td><%= friend.email %></td>
+      <td><%= friend.phone %></td>
+      <td><%= "@" +friend.twitter %></td>
+      <td> <%= link_to "Edit this friend", edit_friend_path(friend), class: "btn btn-outline-success btn-sm" %></td>
+      <td><%= button_to "Destroy this friend", friend, method: :delete, class: "btn btn-outline-danger btn-sm" %></td>
+      <td><%= link_to "Show", friend, class: "btn btn-outline-success btn-sm" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<p><%= link_to "New friend", new_friend_path, class: "btn btn-outline-primary btn-sm" %></p>
+
